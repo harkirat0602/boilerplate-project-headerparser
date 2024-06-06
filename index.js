@@ -23,7 +23,7 @@ app.get('/api/whoami',(req,res)=>{
   console.log(req.ip)
 
   return res.status(200).json({
-    ipaddress: req.headers.ip,
+    ipaddress: req.connection.remoteAddress.split(':').pop(),
     software: req.headers['user-agent'],
     language: req.headers['accept-language'],
   })
